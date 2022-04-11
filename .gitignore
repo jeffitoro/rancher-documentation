@@ -1,2 +1,7 @@
 test
 brols
+
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
