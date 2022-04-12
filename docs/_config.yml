@@ -44,3 +44,8 @@ kramdown:
       line_numbers: false
 sass:
   style: compressed # possible values: nested expanded compact compressed
+defaults:
+  - scope:
+      path: "assets/images"
+    values:
+      image: true
