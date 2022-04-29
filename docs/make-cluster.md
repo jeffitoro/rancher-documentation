@@ -4,7 +4,7 @@ title: Cluster provisioning
 nav_order: 3
 ---
 
-## Cluster rancher
+# Cluster rancher
 Add cluster in my server app: Rancher management.
 
 ---

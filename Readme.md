@@ -14,4 +14,4 @@
 > source 'https://rubygems.org'
 > gem 'github-pages', group: :jekyll_plugins
 ### - Building in directory: bundle install
-### - Run server local: bundle exec jekyll serve --source=docs
+### - Run server local: bundle exec jekyll serve --source=docs --incremental

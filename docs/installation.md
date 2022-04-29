@@ -4,4 +4,4 @@ title: Installation
 nav_order: 2
 ---
 
-## Installation server rancher
+# Installation server rancher
