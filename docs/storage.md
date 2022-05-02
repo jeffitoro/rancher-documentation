@@ -17,3 +17,34 @@ Add storage claims to the workloads.
 
 ### Add data size in the workload services
 [<img alt="alt_text" src="{{site.baseurl}}/assets/images/storage/workload-volume-storage.png" />](/assets/images/storage/workload-volume-storage.png)
+
+### Database
+```yaml
+# Declaration storage claim.
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name:  molengeek-data-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 3Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/mnt/data_molengeek"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name:  molengeek-data-pvc-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 3Gi
+```

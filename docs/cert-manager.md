@@ -18,8 +18,40 @@ Installation cert manager in kubernetes with kubectl.
 ## Make your manager for certification in production
 [<img alt="alt_text" src="{{site.baseurl}}/assets/images/cert-manager/build-cert-manager-production-cert-manager.png" />](/assets/images/cert-manager/build-cert-manager-production-cert-manager.png)
 
+```yaml
+kubectl apply -f - <<EOF
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+  namespace: default
+spec:
+  acme:
+    # The ACME server URL
+    server: https://acme-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: server@molengeek.com
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: letsencrypt-production
+    # Enable the HTTP-01 challenge provider
+    solvers:
+    # An empty 'selector' means that this solver matches all domains
+    - selector: {}
+      http01:
+        ingress:
+          class: nginx
+EOF
+```
+
 ## Check services cert manager in cluster
 [<img alt="alt_text" src="{{site.baseurl}}/assets/images/cert-manager/services-rancher-system-cert-manager.png" />](/assets/images/cert-manager/services-rancher-system-cert-manager.png)
+
+---
+
+# Make certification ssl
+
+---
 
 ## Redirect your server dnsNames to your server node with project
 [<img alt="alt_text" src="{{site.baseurl}}/assets/images/cert-manager/dns-cert-manager.png" />](/assets/images/cert-manager/dns-cert-manager.png)
