@@ -24,7 +24,7 @@ Add storage claims to the workloads.
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name:  molengeek-data-pv-volume
+  name:  borgerhub-data-pv-volume
   labels:
     type: local
 spec:
@@ -34,12 +34,12 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/mnt/data_molengeek"
+    path: "/mnt/data_borgerhub"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name:  molengeek-data-pvc-claim
+  name:  borgerhub-data-pvc-claim
 spec:
   storageClassName: manual
   accessModes:

@@ -62,14 +62,16 @@ If your serverName redirect to your ip, you can continue.
 
 ## Request your manager for certificates ssl in production
 ```yaml
-apiVersion: cert-manager.io/v1 
+apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: crt-tech
+  name: domain-prod-crt-secret
 spec:
-  secretName: crt-tech-secret
+  secretName: domain-crt
+  commonName: domain.com
   dnsNames:
     - domain.com
+    - www.domain.com
   privateKey:
     rotationPolicy: Always
   issuerRef:
